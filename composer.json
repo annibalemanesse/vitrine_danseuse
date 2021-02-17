@@ -1,0 +1,13 @@
+{
+    "require": {
+        "gumlet/php-image-resize": "^1.9",
+        "filp/whoops": "^2.7",
+      "ext-pdo": "*"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.0"
+    }
+    
+    
+    
+}
