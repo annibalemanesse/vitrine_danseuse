@@ -1,7 +1,7 @@
 <?php
 require_once 'utilities/Database.php';
 
-class Contact 
+class Contact
 {
     private $id;
     private $email;
@@ -98,7 +98,7 @@ class Contact
             ]
             );
     }
-    public static function getAllContacts()
+    public function getAllContacts()
     {
         $db = new Database();
         return $db->getMany(

@@ -105,7 +105,7 @@ class SubCategory
             ]
         );
     }
-    public static function getSubCategoryById($id){
+    public function getSubCategoryById($id){
         $db =new Database();
         return $db->getOne(
             "SELECT * FROM sub_category WHERE id = ?",
@@ -113,7 +113,7 @@ class SubCategory
             "SubCategory"
         );
     }
-    public static function getSubCategoriesByIdCategory($id_category) {
+    public function getSubCategoriesByIdCategory($id_category) {
         $db =new Database();
         return $db->getMany(
             "SELECT * FROM sub_category WHERE id_category = ?",

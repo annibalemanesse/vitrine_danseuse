@@ -17,7 +17,7 @@ class CategoryController extends Controller
         }
     }
     public function showOne() {
-        $subcategories = SubCategory::getSubCategoriesByIdCategory($_GET['id']);
+        $subcategories = (new SubCategory())->getSubCategoriesByIdCategory($_GET['id']);
         
         $this->render('front/category', ['subcategories' => $subcategories]);
     }
@@ -47,16 +47,16 @@ class CategoryController extends Controller
         
         if ($u->isLogged()){
             
-            $c = Category::getCategoryById($_GET["id"]);
+            $category = (new Category())->getCategoryById($_GET["id"]);
     
             if (isset($_POST["valider"])){
         
-                $c->setNom($_POST["name"]);
-                $c->edit();
+                $category->setNom($_POST["name"]);
+                $category->edit();
                 $this->redirectTo("user", "index");
             }
             
-            $this->render("admin/edit_category",["category"=>$c]);
+            $this->render("admin/edit_category",["category"=>$category]);
         } else
 
         $this->render("front/index");
@@ -67,10 +67,10 @@ class CategoryController extends Controller
         
         if ($u->isLogged()){
 
-            $c = Category::getCategoryById($_GET["id"]);
+            $category = (new Category())->getCategoryById($_GET["id"]);
         
                              
-            $c->delete();
+            $category->delete();
 
             $this->redirectTo("user", "index");
 

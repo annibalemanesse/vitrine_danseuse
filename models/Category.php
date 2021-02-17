@@ -56,7 +56,7 @@ class Category
             ]
         );
     }
-    public static function getCategoryById($id){
+    public function getCategoryById($id){
         $db =new Database();
         return $db->getOne(
             "SELECT * FROM category WHERE id = ?",

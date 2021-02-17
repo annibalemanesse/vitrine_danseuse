@@ -93,20 +93,20 @@ class User
     /**
      * Vérifie que le format du nouveau mot de passe est valide.
      */ 
-    public function verif()
+    public function verif(): bool
     {
         $result = true;
         
-        if(empty($this->username)) 
+        if(empty($this->getUsername()))
         {
             $result = false;
         }  
         
-        if(empty($this->password)) 
+        if(empty($this->getPassword()))
         {
             $result = false;
         }else{
-            if(strlen($this->password)< 8)
+            if(strlen($this->getPassword())< 8)
             {
                 echo 'Mot de passe trop court!';
                 $result = false;
@@ -115,13 +115,13 @@ class User
                 $num =0;
                 $char = 0;
 
-                for($i = 0; $i< strlen($this->password); $i++)
+                for($i = 0; $i< strlen($this->getPassword()); $i++)
                 {
-                    if(is_numeric($this->password[$i]))
+                    if(is_numeric($this->getPassword()[$i]))
                     {
                         $num++;
                     }
-                    if(is_string($this->password[$i]))
+                    if(is_string($this->getPassword()[$i]))
                     {
                         $char++;
                     }
@@ -147,7 +147,7 @@ class User
             "UPDATE user SET username = ?, `password`=? WHERE id = ?",
             [
                 $this->username,
-                password_hash($this->password,PASSWORD_BCRYPT),
+                password_hash($this->getPassword(),PASSWORD_BCRYPT),
                 $this->id
             ]
             );

@@ -1,20 +1,26 @@
 <?php require_once 'views/header.php';
-$subcats = SubCategory::getAllSubCategories();
-$subjects = Subject::getAllSubjects();
+
+
+$categories = $category_repository->getAllCategories();
+$subcategories = $subcategory_repository->getAllSubCategories();
+$subjects = $subject_repository->getAllSubjects();
+$posts = $post_repository->getAllPosts();
+$contacts = $contact_repository->getAllContacts();
+
+
 ?>
 
 <main class="container">
     <section>
         <div>
             <table>
-                <h1 class="orange">Catégories</h1>
+                <h2 class="orange">Catégories</h2>
                 <thead>
                     <th>Nom</th>
                     <th>Actions</th>
                 </thead>
                 <tbody>
                 <?php 
-                $categories = Category::getAllCategories();
                 foreach($categories as $cat) :?>
                     <tr>
                         <td><?= $cat->getNom() ?></td>
@@ -31,7 +37,7 @@ $subjects = Subject::getAllSubjects();
 
         <div>
             <table>
-                <h1 class="orange">Sous-Catégories</h1>
+                <h2 class="orange">Sous-Catégories</h2>
                 <thead>
                     <th>Nom</th>
                     <th>Description</th>
@@ -40,13 +46,13 @@ $subjects = Subject::getAllSubjects();
                 </thead>
                 <tbody>
                 <?php
-                foreach($subcats as $subcat ):?>
+                foreach($subcategories as $subcat ):?>
                     <tr>
                         <td><?= $subcat->getNom() ?></td>
                         <td><?= $subcat->getDescription() ?></td>
                        
-                        <?php $c = Category::getCategoryById($subcat->getIdCategory()); ?>
-                            <td><?= $c->getNom()?></td>
+                        <?php $cat = $category_repository->getCategoryById($subcat->getIdCategory()); ?>
+                            <td><?= $cat->getNom()?></td>
                         
                         <td>
                             <a href="index.php?class=subCategory&action=editSubCategory&id=<?=$subcat->getId()?>"><i class="far fa-edit"></i></a>
@@ -60,7 +66,7 @@ $subjects = Subject::getAllSubjects();
         </div>
         <div>
             <table>
-                <h1 class="orange">Articles</h1>
+                <h2 class="orange">Articles</h2>
                 <thead>
                     <th>Titre</th>
                     <th>Contenu</th>
@@ -70,14 +76,13 @@ $subjects = Subject::getAllSubjects();
                 </thead>
                 <tbody>
                 <?php 
-               $posts = Post::gettAllPosts();
 
                 foreach($posts as $post) :?>
                     <tr>
                        
                         <td><?= $post->getTitle() ?></td>
                         <td><?= $post->getContent() ?></td>
-                        <?php $sub = SubCategory::getSubCategoryById($post->getIdSubCat()); ?>
+                        <?php $sub = $subcategory_repository->getSubCategoryById($post->getIdSubCat()); ?>
                         <td><?= $sub->getNom()?></td>
                      
                         <td>
@@ -92,7 +97,7 @@ $subjects = Subject::getAllSubjects();
         </div>
         <div>
             <table>
-                <h1 class="orange">Messages</h1>
+                <h2 class="orange">Messages</h2>
                 <thead>
                     <th>email</th>
                     <th>Sujet</th>
@@ -100,14 +105,12 @@ $subjects = Subject::getAllSubjects();
                     <th>Actions</th>
                 </thead>
                 <tbody>
-                <?php 
-               $contacts = Contact::getAllContacts();
-
+                <?php
                 foreach($contacts as $contact) :?>
                     <tr>
                         <td><?= $contact->getEmail() ?></td>
                         
-                        <?php $subject = Subject::getSubjectById($contact->getIdSubject()); ?>
+                        <?php $subject = $subject_repository->getSubjectById($contact->getIdSubject()); ?>
                             <td><?= $subject->getName() ?></td>
                         
                         <td><?= $contact->getMessage() ?></td>

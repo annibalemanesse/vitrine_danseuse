@@ -114,6 +114,7 @@ ul {
 .icon-block {
     display: flex;
     flex-direction: row;
+    cursor: pointer;
 }
 .icon-block a {
     font-size: 1.3em;

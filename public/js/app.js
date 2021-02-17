@@ -16,17 +16,18 @@ $(document).ready(function() {
                 $( ".menu" ).slideToggle( "slow", function() {
                     $( ".hamburger" ).hide();
                     $( ".cross" ).show();
-            });
+                });
             });
             
-            $( ".cross" ).click(function() 
+            $( ".cross" ).click(function()
             {
-            $( ".menu" ).slideToggle( "slow", function() 
+                $( ".menu" ).slideToggle( "slow", function()
                 {
                     $( ".cross" ).hide();
                     $( ".hamburger" ).show();
                 });
             });
+
         /***Déroulement du sous-menu en version mobile */
          $(".drop-down").click(function()
          {

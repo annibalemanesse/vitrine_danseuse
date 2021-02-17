@@ -109,7 +109,7 @@ class Post
             [$this->id]
         );
     }
-    public static function getPostById($id){
+    public function getPostById($id){
         $db =new Database();
         return $db->getOne(
             "SELECT * FROM post WHERE id = ?",
@@ -117,7 +117,7 @@ class Post
             "Post"
         );
     }
-    public static function getPostsBySubCategory($id_sub_cat) : array{
+    public function getPostsBySubCategory($id_sub_cat) : array{
         $db =new Database();
         return $db->getMany(
             "SELECT * FROM post WHERE id_sub_cat = ?",
@@ -125,7 +125,7 @@ class Post
             [$id_sub_cat]
         );
     }
-    public static function gettAllPosts() {
+    public function getAllPosts() {
         $db = new Database();
         return $db->getMany(
             "SELECT * FROM post",

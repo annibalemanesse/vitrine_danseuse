@@ -23,7 +23,13 @@ class ContactController extends Controller {
             echo json_encode(["result" => 'success']);
             exit;
         }
-        $this->render('front/contact');
+        $subcategories_repository = new SubCategory();
+        $subjects_repository = new Subject();
+
+        $this->render('front/contact',[
+            "subcategory_repository" => $subcategories_repository,
+            "subjects_repository" => $subjects_repository
+        ]);
 
     }
     public function deleteContact() {
@@ -31,7 +37,7 @@ class ContactController extends Controller {
         
         if ($u->isLogged())
         {
-            $contact = Contact::getContactById($_GET["id"]);                 
+            $contact = (new Contact())->getContactById($_GET["id"]);
             $contact->delete();
 
             $this->redirectTo("user", "index");
@@ -46,7 +52,6 @@ class ContactController extends Controller {
     public function addNewsletter() {
         if(isset($_POST['newsletter']) && isset($_POST['email'])) 
         {
-            
             $n = new Newsletter();
             $n->setEmail($_POST['email']);
             $n->add();

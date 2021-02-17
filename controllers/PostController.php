@@ -8,13 +8,13 @@ class PostController extends Controller
     
     public function showOne() {
 
-        $post = Post::getPostById($_GET['id']);
+        $post = (new Post())->getPostById($_GET['id']);
     }
 
     public function showBySubCat() {
 
-        $subcat = SubCategory::getSubCategoryById($_GET["id"]);
-        $posts= Post::getPostsBySubCategory($_GET['id_sub_cat']);
+        $subcat = (new SubCategory())->getSubCategoryById($_GET["id"]);
+        $posts= (new Post())->getPostsBySubCategory($_GET['id_sub_cat']);
         
         
         $this->render('front/sub_category',["subcat"=>$subcat,"posts"=>$posts]);
@@ -59,10 +59,8 @@ class PostController extends Controller
     
     public function editPost() {
         $u=new User();
-        $post = Post::getPostById($_GET['id']);
-       
-        
-        
+        $post = (new Post())->getPostById($_GET['id']);
+
         if ($u->isLogged()){
             if (isset($_POST['title']) && isset($_POST['content']) && isset($_POST['valider'])){
              
@@ -96,7 +94,7 @@ class PostController extends Controller
         $u = new User();
 
         if($u->isLogged()) {
-            $image = Image::getImageById($_GET['id']);
+            $image = (new Image())->getImageById($_GET['id']);
 
             $image->delete();
             $this->redirectTo("user","index");

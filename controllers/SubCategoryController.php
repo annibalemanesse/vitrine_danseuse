@@ -10,12 +10,13 @@ class SubCategoryController extends Controller
         $u=new User;
         if ($u->isLogged())
         {
-            $subCategories=SubCategory::getAllSubCategories();
+            $subCategories=(new SubCategory())->getAllSubCategories();
             $this->render("admin/subcategory_list",["subcategories"=>$subCategories]);
         } else
 
         $this->render("front/index");
     }
+
     public function showByCat() {
 
         $this->render("front/category");
@@ -47,8 +48,8 @@ class SubCategoryController extends Controller
         
         if ($u->isLogged()){
             
-            $subcategory = SubCategory::getSubCategoryById($_GET["id"]);
-            $category = Category::getAllCategories();
+            $subcategory = (new SubCategory())->getSubCategoryById($_GET["id"]);
+            $category = (new Category)->getAllCategories();
     
             if (isset($_POST["valider"])){
         
@@ -73,7 +74,7 @@ class SubCategoryController extends Controller
         
         if ($u->isLogged()){
 
-            $subCat = SubCategory::getSubCategoryById($_GET["id"]);
+            $subCat = (new SubCategory())->getSubCategoryById($_GET["id"]);
         
                              
             $subCat->delete();
@@ -86,7 +87,8 @@ class SubCategoryController extends Controller
     }
     
     public function showOne() {
-        
-        $this->render('front/sub_category');
+        $subcategories_repository = new SubCategory();
+
+        $this->render('front/sub_category', ["subcategories_repository" => $subcategories_repository]);
     }
 }

@@ -63,7 +63,7 @@ class Video
             [$this->id]
         );
     }
-    public static function getVideosByIdPost($idPost) {
+    public function getVideosByIdPost($idPost) {
         $db = new Database();
         return $db->getMany(
             "SELECT * FROM `videos`

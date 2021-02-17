@@ -44,9 +44,11 @@
     <header>    
         <div class="menu-inline">
             <div class="logo-container">
-                <h1 id="logo">
+                <a href="index.php?class=user&action=index">
+                    <h1 id="logo">
                     Annibale Manesse
-                </h1>
+                    </h1>
+                </a>
                 <span class="heart"><i class="fas fa-heart"></i></span>
             </div>
 
@@ -64,8 +66,7 @@
                            <i class="fas fa-sort-down"></i>
                         <ul class="sous-menu hidden" id="sous-menu-<?= $cat->getId() ?>">
                         <?php
-                        $subcategories_repository = new SubCategory();
-                        $subcategories = $subcategories_repository->getSubCategoriesByIdCategory($cat->getId());
+                        $subcategories = $subcategory_repository->getSubCategoriesByIdCategory($cat->getId());
                         foreach($subcategories as  $subcat) :?>
                             <li >
                                 <a href="index.php?class=subCategory&action=showOne&id=<?= $subcat->getId() ?>"><?= $subcat->getNom() ?></a>

@@ -9,7 +9,6 @@
     <label for="sujet"> Sujet: </label>
         <select name="id_subject" class="fields">
         <?php
-        $subjects_repository = new Subject();
         $subjects = $subjects_repository->getAllSubjects();
         foreach($subjects as $subject) :?>
             <option value="<?= $subject->getId()?>"><?= $subject->getName() ?></option>

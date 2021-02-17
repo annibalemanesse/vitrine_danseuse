@@ -132,7 +132,7 @@ class Image
             'Image'
         );
     }
-    public static function getImagesByIdPost($idPost) {
+    public function getImagesByIdPost($idPost) {
         $db = new Database();
         return $db->getMany(
             "SELECT * FROM `images`

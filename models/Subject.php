@@ -45,7 +45,7 @@ class Subject {
 
         return $this;
     }
-    public static function getSubjectById($id) {
+    public function getSubjectById($id) {
         $db = new Database();
         return $db->getOne(
         "SELECT * FROM subject_message
@@ -53,7 +53,7 @@ class Subject {
         [$id],
         'Subject');
     }
-    public static function getAllSubjects() {
+    public function getAllSubjects() {
         $db = new Database();
         return $db->getMany(
         "SELECT * FROM subject_message",
