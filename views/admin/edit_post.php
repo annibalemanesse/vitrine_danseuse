@@ -16,3 +16,4 @@
             <p><input type="submit" name="valider" value="Valider"></p>
     </form>
 </main>
+<?php require_once 'views/admin/footer.php' ?>

@@ -18,4 +18,4 @@
  </main>
 </body>
 </html>
-<?php require_once 'views/front/footer.php' ?>
+<?php require_once 'views/admin/footer.php' ?>

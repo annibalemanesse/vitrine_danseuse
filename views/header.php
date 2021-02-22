@@ -76,9 +76,9 @@
                 <?php endforeach ?>
                 <li class="icon-block"><a href="index.php?class=contact&action=addContact">Contact</a></li>
                 <?php else :?> 
-                    <li class="icon-block"><i class="fas fa-moon"></i></i><a href="index.php?class=user&action=editProfile">Modifier le profil</a></li> 
+                    <li class="icon-block"><a href="index.php?class=user&action=editProfile">Modifier le profil</a></li>
 
-                    <li class="icon-block"><i class="fas fa-moon"></i></i><a href="index.php?class=user&action=logout">Se déconnecter</a></li> 
+                    <li class="icon-block"><a href="index.php?class=user&action=logout">Se déconnecter</a></li>
                 <?php endif ?> 
                 
             </ul> 

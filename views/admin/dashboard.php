@@ -128,3 +128,5 @@ $contacts = $contact_repository->getAllContacts();
 
     </section>
 </main>
+<?php require_once 'views/admin/footer.php' ?>
+

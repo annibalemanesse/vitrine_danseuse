@@ -31,9 +31,7 @@
 
         
         <article class="bio">
-            Danseuse Orientale Tribal Fusion ayant un joli parcours scenique avec de superbes references Francaises de ce style de danse comme Louna Omi.
-
-            Anais est également une professionelle de la HoopDance , qui a par la suite appris enormement de technique vitesse lumière en éventails de feu, en arrivant dans la Compagnie! Cette jeune femme pro de l’informatique et du codage de symboles incompréhensifs est tout simplement très douée .
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, asperiores, debitis doloremque eligendi incidunt minima molestias non omnis quaerat quis sequi temporibus? Cum delectus dolor fugiat, magnam quas quos veniam.
         </article>
         
         <form action="index.php?class=contact&action=addNewsletter" method="post" class="newsletter_form">

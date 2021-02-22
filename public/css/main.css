@@ -245,12 +245,7 @@ iframe {
 }
 
 /* CONTACT */
-#contact_form {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  margin: 0 auto;
-}
+
 #content {
   border-radius: 20px;
 }
@@ -273,6 +268,16 @@ td {
   border: 1px solid #fff;
   padding: 1em;
 }
+
+/* EDIT-PROFILE */
+
+.container_form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 auto;
+}
+
 /* Ipad */
 @media screen and (min-width:768px) {
     .slider {
