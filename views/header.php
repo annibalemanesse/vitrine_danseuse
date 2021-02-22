@@ -69,7 +69,7 @@
                         $subcategories = $subcategory_repository->getSubCategoriesByIdCategory($cat->getId());
                         foreach($subcategories as  $subcat) :?>
                             <li >
-                                <a href="index.php?class=subCategory&action=showOne&id=<?= $subcat->getId() ?>"><?= $subcat->getNom() ?></a>
+                                <em><a href="index.php?class=subCategory&action=showOne&id=<?= $subcat->getId() ?>"><?= $subcat->getNom() ?></a></em>
                             </li>
                         <?php endforeach ?>
                         </ul>

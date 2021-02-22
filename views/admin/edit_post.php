@@ -8,7 +8,7 @@
             <p><textarea name="content" id="content" cols="30" rows="10"><?=$post->getContent()?></textarea></p>
             
             <?php 
-               $images = Image::getImagesByIdPost($post->getId());
+               $images = (new Image)->getImagesByIdPost($post->getId());
             foreach ($images as $img) :?>
             <p><img src="img/mini/<?= $img->getPath() ?>" alt=""></p>
            <a href="index.php?class=post&action=deleteImage&id=<?=$img->getId() ?>"> <span class="orange">Supprimer cette image</span></a>

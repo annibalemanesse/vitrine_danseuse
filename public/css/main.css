@@ -112,8 +112,6 @@ ul {
     display: none;
 }
 .icon-block {
-    display: flex;
-    flex-direction: row;
     cursor: pointer;
 }
 .icon-block a {
@@ -134,7 +132,13 @@ i {
     margin:0 auto;
     padding: 1.3em;
 }
+.sous-menu li {
+    font-size: 0.3em;
+}
 /* FOOTER */
+footer a{
+    color: #666666;
+}
 footer nav {
     display: flex;
     flex-direction: column;
@@ -142,8 +146,11 @@ footer nav {
 footer nav > * {
     font-size: 2.1em;
     margin: 0.5em auto;
+    color: #666666;
 }
-/* ACCUEIL */
+
+
+    /* ACCUEIL */
 .slider {
     display: none;
 }
