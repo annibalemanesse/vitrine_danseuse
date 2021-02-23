@@ -10,10 +10,5 @@ class FrontController extends Controller
 
         $this->render("front/index", ["subcategory_repository" => $subcategories_repository]);
     }
-    public function contact()
-    {
-
-        $this->render("front/contact");
-    }
    
 }

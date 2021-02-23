@@ -2,14 +2,12 @@
 
 use Symfony\Component\VarDumper\VarDumper;
 
-require_once 'controllers/Controller.php';
-require_once 'models/User.php';
-
 class UserController extends Controller
 {
     public function index() {
         $category_repository = new Category();
         $subcategory_repository = new SubCategory();
+
         $u = new User();
         if($u->isLogged())
             {
@@ -24,9 +22,10 @@ class UserController extends Controller
                 "post_repository" => $post_repository,
                 "contact_repository" => $contact_repository
             ]);
-        }else $this->render('front/index', [
-           "category_repository" => $category_repository,
-            "subcategory_repository" => $subcategory_repository]);
+        }else
+            $this->render('front/index', [
+                "category_repository" => $category_repository,
+                "subcategory_repository" => $subcategory_repository]);
     }
 //Connexion de l'unique utilisateur qui est l'administrateur.
     public function login()

@@ -1,5 +1,5 @@
 <?php require_once 'views/header.php';
-        $s= SubCategory::getSubCategoryById($_GET['id']);
+        $s= (new SubCategory())->getSubCategoryById($_GET['id']);
         ?>
 <main class="container white">
     <h1 class="orange"><?= $s->getNom()?></h1>

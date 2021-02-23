@@ -89,6 +89,6 @@ class SubCategoryController extends Controller
     public function showOne() {
         $subcategories_repository = new SubCategory();
 
-        $this->render('front/sub_category', ["subcategories_repository" => $subcategories_repository]);
+        $this->render('front/sub_category', ["subcategory_repository" => $subcategories_repository]);
     }
 }

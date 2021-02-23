@@ -3,11 +3,16 @@
     require_once 'models/Newsletter.php';
     require_once 'models/Video.php';
     require_once 'models/Category.php';
+    require_once 'models/Contact.php';
 
     $db = new Database();
     $user = new User();
     $category_repository = new Category();
     $categories = $category_repository->getAllCategories();
+
+    $subcategory = new SubCategory();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +71,7 @@
                            <i class="fas fa-sort-down"></i>
                         <ul class="sous-menu hidden" id="sous-menu-<?= $cat->getId() ?>">
                         <?php
-                        $subcategories = $subcategory_repository->getSubCategoriesByIdCategory($cat->getId());
+                        $subcategories = $subcategory->getSubCategoriesByIdCategory($cat->getId());
                         foreach($subcategories as  $subcat) :?>
                             <li >
                                 <em><a href="index.php?class=subCategory&action=showOne&id=<?= $subcat->getId() ?>"><?= $subcat->getNom() ?></a></em>
@@ -74,7 +79,7 @@
                         <?php endforeach ?>
                         </ul>
                 <?php endforeach ?>
-                <li class="icon-block"><a href="index.php?class=contact&action=addContact">Contact</a></li>
+                <li class="icon-block"><a href="index.php?class=contact&action=index">Contact</a></li>
                 <?php else :?> 
                     <li class="icon-block"><a href="index.php?class=user&action=editProfile">Modifier le profil</a></li>
 

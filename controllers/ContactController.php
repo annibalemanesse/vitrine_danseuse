@@ -2,13 +2,13 @@
 
 use Symfony\Component\VarDumper\VarDumper;
 
-require_once 'Controller.php';
-require_once 'models/Contact.php';
-require_once 'models/Newsletter.php';
-
 class ContactController extends Controller {
     
-    public function addContact(){
+    public function index(){
+        $category_repository = new Category();
+        $subcategory_repository = new SubCategory();
+        $subjects_repository = new Subject();
+
 
         if(isset($_POST['email'])) {
             $contact = new Contact();
@@ -17,19 +17,17 @@ class ContactController extends Controller {
             $contact->setIdSubject($_POST['id_subject']);
             $contact->setMessage($_POST['contenu']);
 
-
             $contact->add();
             header('Content-Type: application/json');
             echo json_encode(["result" => 'success']);
             exit;
+        } else {
+            $this->render('front/contact',[
+                "subject_repository" => $subjects_repository,
+                "category_repository" => $category_repository,
+                "subcategory_repository" => $subcategory_repository
+            ]);
         }
-        $subcategories_repository = new SubCategory();
-        $subjects_repository = new Subject();
-
-        $this->render('front/contact',[
-            "subcategory_repository" => $subcategories_repository,
-            "subjects_repository" => $subjects_repository
-        ]);
 
     }
     public function deleteContact() {

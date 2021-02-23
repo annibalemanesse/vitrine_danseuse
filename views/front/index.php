@@ -20,7 +20,6 @@
 
      <section>
          <div class="rotator-container">
-             <h2 class="name orange">Annibale Manesse</h2>
              <div id="rotate">
                  <div>Danseuse</div>
                  <div>Chorégraphe</div>

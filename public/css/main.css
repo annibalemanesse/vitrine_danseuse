@@ -94,6 +94,9 @@ ul {
     width: 150px;
     border-radius: 70px;
 }
+main {
+    background: url('../img/pink-flowers.jpg');
+}
 #menu {
     display: flex;
     flex-direction: column;
@@ -101,9 +104,10 @@ ul {
     margin: 0 auto;
     width: 100%;
     position: absolute;
-    background: #ffffff;
+    background: rgba(255,255,255, 0.8);
     z-index: 1000000000;
 }
+
 #menu li ,#menu a{
     color: #ef401f;
 }
@@ -133,7 +137,7 @@ i {
     padding: 1.3em;
 }
 .sous-menu li {
-    font-size: 0.3em;
+    font-size: 0.5em;
 }
 /* FOOTER */
 footer a{
@@ -190,8 +194,15 @@ footer nav > * {
     color: #FFB6C1;
     text-shadow: -1px -1px 0 #ef401f, 1px -1px 0 #ef401f, -1px 1px 0 #ef401f, 1px 1px 0 #ef401f;
 }
+#rotate {
+    text-align: center;
+}
 #rotate div {
-    font-size: 1em;
+    font-size: 2em;
+    margin: 0 auto;
+    font-family: 'Playfair Display', serif;
+    text-shadow: -1px -1px 0 #ef401f, 1px -1px 0 #ef401f, -1px 1px 0 #ef401f, 1px 1px 0 #ef401f;
+
 }
 
 input[type=submit]{
@@ -323,8 +334,9 @@ td {
     .sous-menu {
         background: #ffffff;
         position: absolute;
-        margin: 3em auto;
+        margin: 0.3em auto;
         z-index: 3;
+        font-size: 1.5em;
     }
     .slides img{
         width: 50%;
