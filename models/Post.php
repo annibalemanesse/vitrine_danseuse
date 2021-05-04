@@ -96,7 +96,6 @@ class Post
             [
                 $this->title,
                 $this->content,
-
                 $this->id
             ]
         );
