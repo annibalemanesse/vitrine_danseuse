@@ -97,12 +97,7 @@ class User
     {
         $result = true;
         
-        if(empty($this->getUsername()))
-        {
-            $result = false;
-        }  
-        
-        if(empty($this->getPassword()))
+        if(empty($this->getUsername()) || empty($this->getPassword()))
         {
             $result = false;
         }else{
@@ -112,7 +107,7 @@ class User
                 $result = false;
             }else{
                 
-                $num =0;
+                $num = 0;
                 $char = 0;
 
                 for($i = 0; $i< strlen($this->getPassword()); $i++)
@@ -152,14 +147,14 @@ class User
             ]
             );
     }
-    public static function getByUsername($username) {
+    public function getByUsername($username) {
        $db= new Database();
        return $db->getOne(" SELECT * FROM user WHERE username = ?",
        [$username],
        "User"
     );
     }
-    public static function getById($id){
+    public function getById($id){
         $db = new Database();
         return $db->getOne("SELECT * FROM user WHERE id= ?", [$id], 'User'
     );
