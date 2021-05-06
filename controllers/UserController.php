@@ -1,7 +1,5 @@
 <?php
 
-use Symfony\Component\VarDumper\VarDumper;
-
 class UserController extends Controller
 {
     public function index() {
